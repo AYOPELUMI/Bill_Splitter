@@ -17,6 +17,8 @@ body {
 		align-items: center;
 		padding: 25px;
 		height: 100vh;
+		overflow: scroll;
+		overflow-x: hidden;
 		}
 
 .splitter{
@@ -178,6 +180,7 @@ body {
 		@media screen and (max-width: 800px){
 			.main{
 				padding: 30px;
+				justify-content: revert;
 				}
 			.splitter{
 				margin-top:  15px;
