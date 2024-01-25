@@ -83,7 +83,7 @@ console.log({tips})
 		 		<form className="BillSplitterForm SideBar1" onSubmit={result}>
 		 			<div>
 		 				<label>
-		 				Bill:
+		 				<h4>Bill:</h4>
 		 				</label> 
 		 				<input type="text" value={numberFormat(value)} maxLength='24' onChange={getPriceChange} className="input" required/>
 		 			</div>
@@ -92,7 +92,7 @@ console.log({tips})
 		 			</label>
 		 			<div>
 		 				<label>
-		 			 		Number of People
+		 			 		<h4>Number of People</h4>
 		 			 		<input type="text" value= {numberFormat(number)} className="inputNumber input" onChange= {getPeopleChange} inputMode ="numeric" required/>
 		 				</label>
 		 				
@@ -106,7 +106,7 @@ console.log({tips})
 		 					<p>/ person</p>
 		 				</div>
 		 				<div className="bill">
-		 				<h3>${tipResult}</h3>
+		 				<h3>${numberFormat(tipResult)}</h3>
 		 				</div>
 		 			</div>
 		 			<div className="Bill">

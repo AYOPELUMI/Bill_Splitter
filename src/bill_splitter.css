@@ -47,14 +47,18 @@ body {
 			grid-gap: 22px;
 	
 		}
+		label h4{
+			color: #000;
+			font-size: 15px;
+		}
 		.input{
 			border: 1px solid hsl(185deg 41% 84%);
 			outline: none;
 			background-color: hsl(185deg 41% 84%);
 			text-align: right;
 			width: 100%;
-			font-size: large;
-			padding: 13px;
+			font-size: 14px;
+			padding: 6px 13px;
 			color: #00474b;
 			font-weight: bolder;
 			transition: outline 0.25s ease;
@@ -87,6 +91,7 @@ body {
 		.TipsSelector h4{
 			grid-column-start: 1;
 			grid-column-end: 5;
+			color: #000;
 		}
 		.TipsSelector label{
 			width:fit-content;
@@ -181,10 +186,11 @@ body {
 			.main{
 				padding: 30px;
 				justify-content: revert;
-				}
+				padding-bottom: 50px;
+			}
 			.splitter{
 				margin-top:  15px;
-				margin-bottom: 0;
+				
 			}
 			.wrapper{
 				display: flex;
@@ -204,7 +210,6 @@ body {
 			}
 			h3 {
     			font-size: 25px;
-   
 			}
 		
 		}
