@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import {removeComma} from "./assets/removeComma"
+import { numberFormat } from './assets/numberFormat'
 import './bill_splitter.css'
 
 const tipsOption = [
@@ -15,30 +17,29 @@ const [number, setNumber]= useState(1);
 const [tips, setTips] = useState(false);
 const[tipResult, setTipResult] = useState('');
 const [totalResult, setTotalResult] = useState('');
-const [count, setCount] = useState(1)
-const [num, setNum] = useState('')
+
+
 console.log({value});
 console.log({number})
 console.log({tips})
-console.log({count})
+
 
 	const getPriceChange = (event) => {
 		const re = /^\d+$/;
-	
-		if (event.target.value === "" || re.test(event.target.value)) {
-		setCount(count+1)
+		console.log(event.target.value)
+		console.log(removeComma(event.target.value))
+		if (event.target.value === "" || re.test(removeComma(event.target.value))) {
 
-		setValue(event.target.value.toLocaleString())
+		setValue(removeComma(event.target.value))
 	}
 	}
 
 	const getTipsChange = (event) =>{
 		setTips(event.target.value)
-		console.log({key})
 	}
 
 	const getPeopleChange = (event) =>{
-		setNumber(event.target.value)
+		setNumber(removeComma(event.target.value))
 	}
 
 	const resetValue = () =>{
@@ -49,7 +50,8 @@ console.log({count})
 		setTotalResult('')
 	}
 
-	const result= () => {
+	const result= (e) => {
+		e.preventDefault()
 		const Value = Number(value)
 		const Tips = Number(tips)
 		const mumber = Number(number)
@@ -57,7 +59,7 @@ console.log({count})
 	setTotalResult((((Value*Tips)+Value)/mumber).toFixed(2))
 	setTipResult((((Value*Tips)/mumber)).toFixed(2))
 }
-	console.log({result})
+
 
 	const renderTipsOption = () => {
 		const tipsJsx = []
@@ -78,28 +80,24 @@ console.log({count})
 		 		<h2>SPIL<br/>TTER</h2>
 		 	</div>
 		 	<div className="wrapper">
-		 		<form className="BillSplitterForm SideBar1">
+		 		<form className="BillSplitterForm SideBar1" onSubmit={result}>
 		 			<div>
 		 				<label>
 		 				Bill:
 		 				</label> 
-		 				<input type="text" value={value} maxlength='24' onChange={getPriceChange} className="input"/>
+		 				<input type="text" value={numberFormat(value)} maxLength='24' onChange={getPriceChange} className="input" required/>
 		 			</div>
-		 			<div> 
-		 				<label className="TipsSelector"> Select Tips %
-		 					<label className="TipsSelect" htmlFor='tip' onChange={getTipsChange}>
+		 				<label className="TipsSelector" htmlFor ='tip' onChange={getTipsChange}> <h4>Select Tips %</h4>
 		 					{renderTipsOption()}
-		 				</label>
 		 			</label>
-		 			</div>
 		 			<div>
 		 				<label>
 		 			 		Number of People
-		 			 		<input type="Number" value= {number} className="inputNumber input" onInput= {getPeopleChange}/>
+		 			 		<input type="text" value= {numberFormat(number)} className="inputNumber input" onChange= {getPeopleChange} inputMode ="numeric" required/>
 		 				</label>
 		 				
 		 			</div>
-		 			<button type="button" className="SideBar1Btn btn" onClick={result}>Submit</button>
+		 			<button type="submit" className="SideBar1Btn btn">Submit</button>
 		 		</form>
 		 		<aside className="SideBar2">
 		 			<div className="Bill">
