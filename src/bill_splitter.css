@@ -3,6 +3,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+#root{
+	min-height: 100vh;
+}
 .main{
 		background-color: hsl(185deg 41% 84%);
 		display: flex;
