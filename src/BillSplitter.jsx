@@ -115,7 +115,7 @@ console.log({tips})
 		 					<p>/ person</p>
 		 				</div>
 		 				<div className="bill" >
-		 				<h3>$ {totalResult}</h3>
+		 				<h3>$ {numberFormat(totalResult)}</h3>
 		 				</div>
 		 			</div>
 		 				<button  onClick={resetValue} className="Reset btn">RESET</button>
